@@ -43,14 +43,6 @@
         "description": "Retrieve the config of the company with the matching company slug.",
         "parameters": [
           {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "description": "",
-              "type": "object"
-            }
-          },
-          {
             "type": "string",
             "in": "header",
             "name": "Authorization",
