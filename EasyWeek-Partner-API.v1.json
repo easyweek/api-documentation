@@ -71,7 +71,6 @@
                   "properties": {
                     "url": {
                       "type": "string",
-                      "minLength": 1,
                       "description": "Parent company page URL"
                     },
                     "company": {
@@ -101,12 +100,10 @@
                         },
                         "name": {
                           "type": "string",
-                          "minLength": 1,
                           "description": "Company name"
                         },
                         "slug": {
                           "type": "string",
-                          "minLength": 1,
                           "description": "Company unique slug"
                         },
                         "show_service_end_time": {
@@ -125,7 +122,6 @@
                         },
                         "country": {
                           "type": "string",
-                          "minLength": 1,
                           "description": "Company country ISO code"
                         },
                         "images": {
@@ -150,66 +146,56 @@
                             "viber",
                             "telegram"
                           ],
+                          "description": "Parent company profile",
                           "properties": {
                             "id": {
                               "type": "number"
                             },
                             "company_type": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "currency": {
                               "type": "string",
-                              "minLength": 1
+                              "description": "Company currency ISO code"
                             },
                             "phone": {
                               "type": "array",
-                              "items": {
-                                "type": "object"
-                              }
+                              "description": "Company phones",
+                              "items": {}
                             },
                             "timezone": {
                               "type": "string",
-                              "minLength": 1
+                              "description": "Company timezone"
                             },
                             "locale": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "language": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "industry": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "description": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "instagram": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "facebook": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "whatsapp": {},
                             "viber": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "telegram": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             }
                           }
                         },
                         "about": {
-                          "type": "string",
-                          "minLength": 1
+                          "type": "string"
                         },
                         "public": {
                           "type": "boolean"
@@ -242,8 +228,7 @@
                                   "type": "number"
                                 },
                                 "timezone": {
-                                  "type": "string",
-                                  "minLength": 1
+                                  "type": "string"
                                 },
                                 "working_days": {
                                   "type": "array",
@@ -282,7 +267,6 @@
                         "users": {
                           "type": "array",
                           "uniqueItems": true,
-                          "minItems": 1,
                           "items": {
                             "type": "object",
                             "properties": {
@@ -290,16 +274,13 @@
                                 "type": "number"
                               },
                               "name": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "avatar": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "position": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "hide_position": {
                                 "type": "boolean"
@@ -396,41 +377,33 @@
                           ],
                           "properties": {
                             "primary": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "surface": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "secondary": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "on-primary": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             },
                             "on-surface": {
-                              "type": "string",
-                              "minLength": 1
+                              "type": "string"
                             }
                           }
                         },
                         "contactForm": {
                           "type": "array",
                           "uniqueItems": true,
-                          "minItems": 1,
                           "items": {
                             "type": "object",
                             "properties": {
                               "name": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "type": {
-                                "type": "string",
-                                "minLength": 1
+                                "type": "string"
                               },
                               "required": {
                                 "type": "boolean"
