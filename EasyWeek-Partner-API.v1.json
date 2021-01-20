@@ -122,7 +122,8 @@
                         },
                         "country": {
                           "type": "string",
-                          "description": "Company country ISO code"
+                          "description": "Company country ISO code",
+                          "example": "RU"
                         },
                         "images": {
                           "type": "array",
