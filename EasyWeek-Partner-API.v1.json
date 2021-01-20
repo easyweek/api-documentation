@@ -75,6 +75,7 @@
                     },
                     "company": {
                       "type": "object",
+                      "description": "Parent company data",
                       "required": [
                         "id",
                         "name",
@@ -92,7 +93,6 @@
                         "calendar",
                         "users"
                       ],
-                      "description": "Parent company data",
                       "properties": {
                         "id": {
                           "type": "number",
@@ -132,6 +132,7 @@
                         },
                         "profile": {
                           "type": "object",
+                          "description": "Parent company profile",
                           "required": [
                             "id",
                             "company_type",
@@ -147,7 +148,6 @@
                             "viber",
                             "telegram"
                           ],
-                          "description": "Parent company profile",
                           "properties": {
                             "id": {
                               "type": "number"
@@ -157,7 +157,8 @@
                             },
                             "currency": {
                               "type": "string",
-                              "description": "Company currency ISO code"
+                              "description": "Company currency ISO code",
+                              "example": "RUB"
                             },
                             "phone": {
                               "type": "array",
@@ -166,16 +167,20 @@
                             },
                             "timezone": {
                               "type": "string",
-                              "description": "Company timezone"
+                              "description": "Company timezone",
+                              "example": "Europe/Moscow"
                             },
                             "locale": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Company ISO locale code",
+                              "example": "ru"
                             },
                             "language": {
                               "type": "string"
                             },
                             "industry": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Company industry of operation"
                             },
                             "description": {
                               "type": "string"
@@ -268,6 +273,7 @@
                         "users": {
                           "type": "array",
                           "uniqueItems": true,
+                          "description": "Company employees",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -366,6 +372,7 @@
                         "style",
                         "contactForm"
                       ],
+                      "description": "Widget global config",
                       "properties": {
                         "style": {
                           "type": "object",
@@ -376,6 +383,7 @@
                             "on-primary",
                             "on-surface"
                           ],
+                          "description": "Widget colors & styles",
                           "properties": {
                             "primary": {
                               "type": "string"
@@ -397,6 +405,7 @@
                         "contactForm": {
                           "type": "array",
                           "uniqueItems": true,
+                          "description": "Widget booking form configuration",
                           "items": {
                             "type": "object",
                             "properties": {
@@ -423,6 +432,7 @@
                       "type": "array",
                       "uniqueItems": true,
                       "minItems": 1,
+                      "description": "Parent company branches data",
                       "items": {
                         "type": "object",
                         "properties": {
