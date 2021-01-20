@@ -469,6 +469,7 @@
                           },
                           "address": {
                             "type": "object",
+                            "description": "Branch address",
                             "properties": {
                               "id": {
                                 "type": "number"
@@ -579,30 +580,15 @@
                           },
                           "working_days": {
                             "type": "array",
-                            "items": {
-                              "type": "object"
-                            }
+                            "items": {}
                           },
                           "working_dates": {
                             "type": "array",
-                            "items": {
-                              "type": "object"
-                            }
+                            "items": {}
                           },
                           "working_hours": {
                             "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "0": {
-                                  "type": "array",
-                                  "uniqueItems": true,
-                                  "items": {
-                                    "type": "object"
-                                  }
-                                }
-                              }
-                            }
+                            "items": {}
                           },
                           "products": {
                             "type": "array",
@@ -1004,6 +990,7 @@
                       "type": "array",
                       "uniqueItems": true,
                       "minItems": 1,
+                      "description": "All company employees",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -1011,16 +998,13 @@
                             "type": "number"
                           },
                           "name": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "avatar": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "position": {
-                            "type": "string",
-                            "minLength": 1
+                            "type": "string"
                           },
                           "hide_position": {
                             "type": "boolean"
@@ -1059,7 +1043,8 @@
                       }
                     },
                     "subscription": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "If company has active subscription"
                     }
                   }
                 }
