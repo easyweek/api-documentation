@@ -1331,6 +1331,25 @@
         "description": "Show all available date slots for user and service."
       },
       "parameters": []
+    },
+    "/bookings/company/{companySlug}/book": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "companySlug",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "",
+        "operationId": "post-bookings-company-companySlug-book",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "definitions": {},
