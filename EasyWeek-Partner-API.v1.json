@@ -1201,11 +1201,12 @@
           "type": "string",
           "name": "companySlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "The slug of the main company in EasyWeek."
         }
       ]
     },
-    "/bookings/company/{companySlug}/calendars": {
+    "/bookings/company/calendars": {
       "get": {
         "summary": "Get Available Date Slots",
         "tags": [],
@@ -1338,7 +1339,8 @@
           "type": "string",
           "name": "companySlug",
           "in": "path",
-          "required": true
+          "required": true,
+          "description": "The slug of the main company in EasyWeek."
         }
       ],
       "post": {
@@ -1384,38 +1386,48 @@
               "type": "object",
               "properties": {
                 "user_id": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Employee id"
                 },
                 "reserved_on": {
                   "type": "string",
                   "format": "date-time",
-                  "example": "2021-01-16T11:15:00.000"
+                  "example": "2021-01-16T11:15:00.000",
+                  "description": "Booked date"
                 },
                 "branch_id": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Company branch date booked in"
                 },
                 "product_id": {
-                  "type": "number"
+                  "type": "number",
+                  "description": "Booked service id"
                 },
                 "related_ids": {
                   "type": "array",
+                  "description": "Booked related services ids",
                   "items": {}
                 },
                 "customer_phone": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Booked customer phone"
                 },
                 "customer_first_name": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Booked customer first name"
                 },
                 "customer_email": {
                   "type": "string",
-                  "format": "email"
+                  "format": "email",
+                  "description": "Booked customer email"
                 },
                 "booking_comment": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Booking additional description"
                 },
                 "booking_callback": {
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "Is callback needed"
                 }
               },
               "required": [
