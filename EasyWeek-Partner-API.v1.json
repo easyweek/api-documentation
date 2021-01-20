@@ -1348,7 +1348,70 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "description": "Create new booking",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer {EASYWEEK_PARTNER_TOKEN}",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "user_id": {
+                  "type": "number"
+                },
+                "reserved_on": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "branch_id": {
+                  "type": "number"
+                },
+                "product_id": {
+                  "type": "number"
+                },
+                "related_ids": {
+                  "type": "array",
+                  "items": {}
+                },
+                "customer_phone": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "customer_first_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "customer_email": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "booking_comment": {
+                  "type": "string"
+                },
+                "booking_callback": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "user_id",
+                "reserved_on",
+                "branch_id",
+                "product_id",
+                "customer_phone",
+                "customer_first_name"
+              ]
+            }
+          }
+        ]
       }
     }
   },
