@@ -59,24 +59,55 @@
               "properties": {
                 "data": {
                   "type": "object",
+                  "required": [
+                    "url",
+                    "company",
+                    "config",
+                    "branches",
+                    "products",
+                    "users",
+                    "subscription"
+                  ],
                   "properties": {
                     "url": {
                       "type": "string",
-                      "minLength": 1
+                      "minLength": 1,
+                      "description": "Parent company page URL"
                     },
                     "company": {
                       "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "slug",
+                        "show_service_end_time",
+                        "is_copyrighted",
+                        "is_company_rating",
+                        "is_user_rating",
+                        "country",
+                        "images",
+                        "profile",
+                        "about",
+                        "public",
+                        "is_address_hidden",
+                        "calendar",
+                        "users"
+                      ],
+                      "description": "Parent company data",
                       "properties": {
                         "id": {
-                          "type": "number"
+                          "type": "number",
+                          "description": "Unique company id"
                         },
                         "name": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Company name"
                         },
                         "slug": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Company unique slug"
                         },
                         "show_service_end_time": {
                           "type": "boolean"
@@ -85,24 +116,40 @@
                           "type": "boolean"
                         },
                         "is_company_rating": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Show company rating"
                         },
                         "is_user_rating": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Show employee rating"
                         },
                         "country": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Company country ISO code"
                         },
                         "images": {
                           "type": "array",
-                          "items": {
-                            "required": [],
-                            "properties": {}
-                          }
+                          "description": "Company branches and services images",
+                          "items": {}
                         },
                         "profile": {
                           "type": "object",
+                          "required": [
+                            "id",
+                            "company_type",
+                            "currency",
+                            "phone",
+                            "timezone",
+                            "locale",
+                            "language",
+                            "industry",
+                            "description",
+                            "instagram",
+                            "facebook",
+                            "viber",
+                            "telegram"
+                          ],
                           "properties": {
                             "id": {
                               "type": "number"
@@ -118,8 +165,7 @@
                             "phone": {
                               "type": "array",
                               "items": {
-                                "required": [],
-                                "properties": {}
+                                "type": "object"
                               }
                             },
                             "timezone": {
@@ -159,22 +205,7 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "id",
-                            "company_type",
-                            "currency",
-                            "phone",
-                            "timezone",
-                            "locale",
-                            "language",
-                            "industry",
-                            "description",
-                            "instagram",
-                            "facebook",
-                            "viber",
-                            "telegram"
-                          ]
+                          }
                         },
                         "about": {
                           "type": "string",
@@ -188,12 +219,24 @@
                         },
                         "calendar": {
                           "type": "object",
+                          "required": [
+                            "id",
+                            "config",
+                            "type"
+                          ],
                           "properties": {
                             "id": {
                               "type": "number"
                             },
                             "config": {
                               "type": "object",
+                              "required": [
+                                "duration",
+                                "timezone",
+                                "working_days",
+                                "working_dates",
+                                "working_hours"
+                              ],
                               "properties": {
                                 "duration": {
                                   "type": "number"
@@ -205,64 +248,43 @@
                                 "working_days": {
                                   "type": "array",
                                   "items": {
-                                    "required": [],
-                                    "properties": {}
+                                    "type": "object"
                                   }
                                 },
                                 "working_dates": {
                                   "type": "array",
                                   "items": {
-                                    "required": [],
-                                    "properties": {}
+                                    "type": "object"
                                   }
                                 },
                                 "working_hours": {
                                   "type": "array",
                                   "items": {
-                                    "required": [],
+                                    "type": "object",
                                     "properties": {
                                       "0": {
                                         "type": "array",
                                         "uniqueItems": true,
                                         "items": {
-                                          "required": [],
-                                          "properties": {}
+                                          "type": "object"
                                         }
                                       }
                                     }
                                   }
                                 }
-                              },
-                              "required": [
-                                "duration",
-                                "timezone",
-                                "working_days",
-                                "working_dates",
-                                "working_hours"
-                              ]
+                              }
                             },
                             "type": {
                               "type": "number"
                             }
-                          },
-                          "required": [
-                            "id",
-                            "config",
-                            "type"
-                          ]
+                          }
                         },
                         "users": {
                           "type": "array",
                           "uniqueItems": true,
                           "minItems": 1,
                           "items": {
-                            "required": [
-                              "id",
-                              "name",
-                              "avatar",
-                              "position",
-                              "hide_position"
-                            ],
+                            "type": "object",
                             "properties": {
                               "id": {
                                 "type": "number"
@@ -344,33 +366,34 @@
                                   "position"
                                 ]
                               }
-                            }
+                            },
+                            "required": [
+                              "id",
+                              "name",
+                              "avatar",
+                              "position",
+                              "hide_position"
+                            ]
                           }
                         }
-                      },
-                      "required": [
-                        "id",
-                        "name",
-                        "slug",
-                        "show_service_end_time",
-                        "is_copyrighted",
-                        "is_company_rating",
-                        "is_user_rating",
-                        "country",
-                        "images",
-                        "profile",
-                        "about",
-                        "public",
-                        "is_address_hidden",
-                        "calendar",
-                        "users"
-                      ]
+                      }
                     },
                     "config": {
                       "type": "object",
+                      "required": [
+                        "style",
+                        "contactForm"
+                      ],
                       "properties": {
                         "style": {
                           "type": "object",
+                          "required": [
+                            "primary",
+                            "surface",
+                            "secondary",
+                            "on-primary",
+                            "on-surface"
+                          ],
                           "properties": {
                             "primary": {
                               "type": "string",
@@ -392,25 +415,14 @@
                               "type": "string",
                               "minLength": 1
                             }
-                          },
-                          "required": [
-                            "primary",
-                            "surface",
-                            "secondary",
-                            "on-primary",
-                            "on-surface"
-                          ]
+                          }
                         },
                         "contactForm": {
                           "type": "array",
                           "uniqueItems": true,
                           "minItems": 1,
                           "items": {
-                            "required": [
-                              "name",
-                              "type",
-                              "required"
-                            ],
+                            "type": "object",
                             "properties": {
                               "name": {
                                 "type": "string",
@@ -423,34 +435,22 @@
                               "required": {
                                 "type": "boolean"
                               }
-                            }
+                            },
+                            "required": [
+                              "name",
+                              "type",
+                              "required"
+                            ]
                           }
                         }
-                      },
-                      "required": [
-                        "style",
-                        "contactForm"
-                      ]
+                      }
                     },
                     "branches": {
                       "type": "array",
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "required": [
-                          "id",
-                          "name",
-                          "slug",
-                          "is_copyrighted",
-                          "is_company_rating",
-                          "is_user_rating",
-                          "country",
-                          "about",
-                          "public",
-                          "is_address_hidden",
-                          "duration",
-                          "timezone"
-                        ],
+                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "number"
@@ -480,8 +480,7 @@
                           "images": {
                             "type": "array",
                             "items": {
-                              "required": [],
-                              "properties": {}
+                              "type": "object"
                             }
                           },
                           "address": {
@@ -499,6 +498,10 @@
                               "apt": {},
                               "position": {
                                 "type": "object",
+                                "required": [
+                                  "lat",
+                                  "lng"
+                                ],
                                 "properties": {
                                   "lat": {
                                     "type": "number"
@@ -506,11 +509,7 @@
                                   "lng": {
                                     "type": "number"
                                   }
-                                },
-                                "required": [
-                                  "lat",
-                                  "lng"
-                                ]
+                                }
                               }
                             },
                             "required": [
@@ -536,8 +535,7 @@
                               "phone": {
                                 "type": "array",
                                 "items": {
-                                  "required": [],
-                                  "properties": {}
+                                  "type": "object"
                                 }
                               },
                               "timezone": {
@@ -598,28 +596,25 @@
                           "working_days": {
                             "type": "array",
                             "items": {
-                              "required": [],
-                              "properties": {}
+                              "type": "object"
                             }
                           },
                           "working_dates": {
                             "type": "array",
                             "items": {
-                              "required": [],
-                              "properties": {}
+                              "type": "object"
                             }
                           },
                           "working_hours": {
                             "type": "array",
                             "items": {
-                              "required": [],
+                              "type": "object",
                               "properties": {
                                 "0": {
                                   "type": "array",
                                   "uniqueItems": true,
                                   "items": {
-                                    "required": [],
-                                    "properties": {}
+                                    "type": "object"
                                   }
                                 }
                               }
@@ -630,14 +625,15 @@
                             "uniqueItems": true,
                             "minItems": 1,
                             "items": {
-                              "required": [
-                                "id"
-                              ],
+                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "number"
                                 }
-                              }
+                              },
+                              "required": [
+                                "id"
+                              ]
                             }
                           },
                           "calendar": {
@@ -648,6 +644,13 @@
                               },
                               "config": {
                                 "type": "object",
+                                "required": [
+                                  "duration",
+                                  "timezone",
+                                  "working_days",
+                                  "working_dates",
+                                  "working_hours"
+                                ],
                                 "properties": {
                                   "duration": {
                                     "type": "number"
@@ -659,41 +662,31 @@
                                   "working_days": {
                                     "type": "array",
                                     "items": {
-                                      "required": [],
-                                      "properties": {}
+                                      "type": "object"
                                     }
                                   },
                                   "working_dates": {
                                     "type": "array",
                                     "items": {
-                                      "required": [],
-                                      "properties": {}
+                                      "type": "object"
                                     }
                                   },
                                   "working_hours": {
                                     "type": "array",
                                     "items": {
-                                      "required": [],
+                                      "type": "object",
                                       "properties": {
                                         "0": {
                                           "type": "array",
                                           "uniqueItems": true,
                                           "items": {
-                                            "required": [],
-                                            "properties": {}
+                                            "type": "object"
                                           }
                                         }
                                       }
                                     }
                                   }
-                                },
-                                "required": [
-                                  "duration",
-                                  "timezone",
-                                  "working_days",
-                                  "working_dates",
-                                  "working_hours"
-                                ]
+                                }
                               },
                               "type": {
                                 "type": "number"
@@ -710,155 +703,6 @@
                             "properties": {
                               "days": {
                                 "type": "object",
-                                "properties": {
-                                  "fri": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "mon": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "sat": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "sun": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "thu": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "tue": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "wed": {
-                                    "type": "array",
-                                    "uniqueItems": true,
-                                    "minItems": 1,
-                                    "items": {
-                                      "required": [
-                                        "to",
-                                        "from"
-                                      ],
-                                      "properties": {
-                                        "to": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        },
-                                        "from": {
-                                          "type": "string",
-                                          "minLength": 1
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
                                 "required": [
                                   "fri",
                                   "mon",
@@ -867,14 +711,184 @@
                                   "thu",
                                   "tue",
                                   "wed"
-                                ]
+                                ],
+                                "properties": {
+                                  "fri": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "mon": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "sat": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "sun": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "thu": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "tue": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  },
+                                  "wed": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "to": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "from": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        }
+                                      },
+                                      "required": [
+                                        "to",
+                                        "from"
+                                      ]
+                                    }
+                                  }
+                                }
                               }
                             },
                             "required": [
                               "days"
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "slug",
+                          "is_copyrighted",
+                          "is_company_rating",
+                          "is_user_rating",
+                          "country",
+                          "about",
+                          "public",
+                          "is_address_hidden",
+                          "duration",
+                          "timezone"
+                        ]
                       }
                     },
                     "products": {
@@ -882,12 +896,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "required": [
-                          "id",
-                          "name",
-                          "price",
-                          "price_formatted"
-                        ],
+                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "number"
@@ -909,19 +918,7 @@
                             "uniqueItems": true,
                             "minItems": 1,
                             "items": {
-                              "required": [
-                                "id",
-                                "name",
-                                "price",
-                                "price_formatted",
-                                "price_discount",
-                                "duration",
-                                "is_duration_hidden",
-                                "is_price_hidden",
-                                "live",
-                                "starting_at",
-                                "is_top"
-                              ],
+                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "number"
@@ -964,18 +961,29 @@
                                 "related_products": {
                                   "type": "array",
                                   "items": {
-                                    "required": [],
-                                    "properties": {}
+                                    "type": "object"
                                   }
                                 },
                                 "images": {
                                   "type": "array",
                                   "items": {
-                                    "required": [],
-                                    "properties": {}
+                                    "type": "object"
                                   }
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "price",
+                                "price_formatted",
+                                "price_discount",
+                                "duration",
+                                "is_duration_hidden",
+                                "is_price_hidden",
+                                "live",
+                                "starting_at",
+                                "is_top"
+                              ]
                             }
                           },
                           "categories": {
@@ -983,10 +991,7 @@
                             "uniqueItems": true,
                             "minItems": 1,
                             "items": {
-                              "required": [
-                                "id",
-                                "name"
-                              ],
+                              "type": "object",
                               "properties": {
                                 "id": {
                                   "type": "number"
@@ -995,10 +1000,20 @@
                                   "type": "string",
                                   "minLength": 1
                                 }
-                              }
+                              },
+                              "required": [
+                                "id",
+                                "name"
+                              ]
                             }
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "price",
+                          "price_formatted"
+                        ]
                       }
                     },
                     "users": {
@@ -1006,13 +1021,7 @@
                       "uniqueItems": true,
                       "minItems": 1,
                       "items": {
-                        "required": [
-                          "id",
-                          "name",
-                          "avatar",
-                          "position",
-                          "hide_position"
-                        ],
+                        "type": "object",
                         "properties": {
                           "id": {
                             "type": "number"
@@ -1055,22 +1064,20 @@
                               "position"
                             ]
                           }
-                        }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "avatar",
+                          "position",
+                          "hide_position"
+                        ]
                       }
                     },
                     "subscription": {
                       "type": "boolean"
                     }
-                  },
-                  "required": [
-                    "url",
-                    "company",
-                    "config",
-                    "branches",
-                    "products",
-                    "users",
-                    "subscription"
-                  ]
+                  }
                 }
               },
               "required": [
