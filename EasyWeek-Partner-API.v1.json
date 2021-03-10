@@ -1174,7 +1174,7 @@
         }
       ]
     },
-    "/bookings/company/calendars": {
+    "/bookings/company/{companySlug}/calendars": {
       "get": {
         "summary": "Get Available Date Slots",
         "tags": [],
@@ -1258,32 +1258,34 @@
             "type": "string",
             "in": "query",
             "name": "range_start",
-            "description": "Filter by start date ",
-            "required": true
+            "description": "Filter by start date (YYYY-MM-DD)",
+            "required": true,
+            "format": "date"
           },
           {
             "type": "string",
             "in": "query",
             "name": "range_end",
-            "description": "Filter by end date",
-            "required": true
+            "description": "Filter by end date (YYYY-MM-DD)",
+            "required": true,
+            "format": "date"
           },
           {
-            "type": "string",
+            "type": "integer",
             "in": "query",
             "name": "service",
             "description": "Service ID",
             "required": true
           },
           {
-            "type": "string",
+            "type": "integer",
             "in": "query",
             "name": "branch",
             "description": "Location ID",
             "required": true
           },
           {
-            "type": "string",
+            "type": "integer",
             "in": "query",
             "name": "user",
             "description": "User ID",
@@ -1406,7 +1408,8 @@
                 "customer_phone",
                 "customer_first_name"
               ]
-            }
+            },
+            "description": ""
           }
         ]
       }
