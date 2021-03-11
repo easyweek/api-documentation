@@ -1414,11 +1414,11 @@
         ]
       }
     },
-    "bookings/{hash}": {
+    "bookings/{hashid}": {
       "parameters": [
         {
           "type": "string",
-          "name": "hash",
+          "name": "hashid",
           "in": "path",
           "required": true,
           "description": "Booking's hashed id, returned after successful booking creation."
@@ -1432,7 +1432,7 @@
             "description": "OK"
           }
         },
-        "description": "Cancel booking using its hash.",
+        "description": "Cancel booking using its hashed id.",
         "parameters": [
           {
             "type": "string",
