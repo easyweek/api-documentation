@@ -1413,6 +1413,36 @@
           }
         ]
       }
+    },
+    "bookings/{hash}": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "hash",
+          "in": "path",
+          "required": true,
+          "description": "Booking's hashed id, returned after successful booking creation."
+        }
+      ],
+      "delete": {
+        "summary": "Cancel booking",
+        "operationId": "delete-api-website-company-order-hash",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "description": "Cancel booking using its hash.",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer {EASYWEEK_PARTNER_TOKEN}",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "definitions": {},
