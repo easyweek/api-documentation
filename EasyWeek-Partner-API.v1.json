@@ -1443,6 +1443,57 @@
           }
         ]
       }
+    },
+    "/bookings/{booking_hashid}/status/{status_id}": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "booking_hashid",
+          "in": "path",
+          "required": true
+        },
+        {
+          "type": "string",
+          "name": "status_id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "put": {
+        "summary": "Update booking status",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "operationId": "put-bookings-booking_hashid-status-status_id",
+        "description": "Enpoint to update booking to a new status. Final successful and unsuccessful statuses are prohibited.",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "booking_hashid",
+            "description": "Booking hashid"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "status_id",
+            "description": "Lead status id"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer {EASYWEEK_PARTNER_TOKEN}"
+          }
+        ]
+      }
     }
   },
   "definitions": {},
