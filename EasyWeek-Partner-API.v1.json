@@ -1301,7 +1301,15 @@
         ],
         "description": "Show all available date slots for user and service."
       },
-      "parameters": []
+      "parameters": [
+        {
+          "type": "string",
+          "name": "companySlug",
+          "in": "path",
+          "required": true,
+          "description": "The slug of the main company in EasyWeek."
+        }
+      ]
     },
     "/bookings/company/{companySlug}/book": {
       "parameters": [
@@ -1414,7 +1422,7 @@
         ]
       }
     },
-    "bookings/{hashid}": {
+    "/bookings/{hashid}": {
       "parameters": [
         {
           "type": "string",
